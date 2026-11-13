@@ -1,0 +1,62 @@
+{
+  "name": "clean-up",
+  "version": "1.0.0",
+  "description": "macOS Memory & Storage Inspector Desktop App built with Electron",
+  "main": "src/main/index.js",
+  "scripts": {
+    "dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && VITE_DEV=1 electron .\"",
+    "build": "vite build",
+    "start": "electron .",
+    "preview": "vite build && electron .",
+    "dist": "vite build && electron-builder --mac"
+  },
+  "build": {
+    "appId": "com.linkon.cleanup",
+    "productName": "Clean-Up",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "src/main/**/*",
+      "src/preload/**/*",
+      "package.json"
+    ],
+    "mac": {
+      "category": "public.app-category.utilities",
+      "icon": "build/icon.icns",
+      "target": [
+        "dir",
+        "dmg"
+      ],
+      "identity": null
+    }
+  },
+  "keywords": [
+    "electron",
+    "macos",
+    "memory",
+    "storage",
+    "pnpm",
+    "cleanup"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "@vitejs/plugin-react": "^6.3.0",
+    "concurrently": "^10.0.7",
+    "electron": "^45.3.1",
+    "electron-builder": "^26.18.0",
+    "tailwindcss": "^4.3.5",
+    "vite": "^8.3.8",
+    "wait-on": "^9.5.1"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.72.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwind-merge": "^3.7.0"
+  }
+}
