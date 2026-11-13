@@ -13,3 +13,4 @@ pnpm install
 pnpm dev      # Run in development mode
 pnpm dist     # Build macOS .app and .dmg in release/
 ```
+
